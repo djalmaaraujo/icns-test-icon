@@ -3,8 +3,8 @@
   "main": "app/index.html",
   "window": {
     "title": "ICNSTestIcon",
-    "toolbar": true,
-    "frame": true,
+    "toolbar": false,
+    "frame": false,
     "width": 300,
     "height": 100,
     "min_width": 300,
