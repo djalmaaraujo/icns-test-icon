@@ -18,5 +18,38 @@
 </head>
 <body>
   <p>Check the icon loaded!</p>
+  <script type="text/javascript" src="vendor/mousetrap.min.js"></script>
+
+  <script type="text/javascript">
+    var gui             = require('nw.gui');
+    var exec            = require('child_process').exec;
+    var win             = gui.Window.get();
+    var tempApplication = '~/ICNSTestSampleApp';
+
+    var App = {
+      removeTempApp: function () {
+        exec('rm -rf ' + tempApplication + '*', function (error, stdout, stderr) {
+          console.log(error, stdout, stderr);
+          App.quit();
+        });
+
+      },
+
+      quit: function () {
+        gui.App.quit();
+      }
+    };
+
+    // Keyboard Shortcuts
+    Mousetrap.bind(['mod+q', 'mod+w'], function(e) {
+      App.removeTempApp();
+      return false;
+    });
+
+    win.on('close', function () {
+      App.removeTempApp();
+    });
+
+  </script>
 </body>
 </html>
