@@ -18,11 +18,15 @@
     }
 
     function moveIcon(icon) {
-      return 'cp ' + icon + ' ' + finalPath + '/Contents/Resources/nw.icns';
+      return 'cp "' + icon + '" ' + finalPath + '/Contents/Resources/nw.icns';
     }
 
     function moveApp() {
       return 'cp -R /Applications/ICNSTestIcon.app ' + finalPath + '/';
+    }
+
+    function removeExistingApp() {
+      return 'rm -rf ' + finalPath + '/Contents/Resources/app.nw';
     }
 
     function moveSampleApp() {
@@ -37,7 +41,8 @@
       var chooser = document.querySelector(name);
 
       chooser.addEventListener("change", function(evt) {
-        exec(removeActualApp() + ' && ' + moveApp() + ' && ' + moveSampleApp() + ' && ' + moveIcon(this.value) + ' && ' + openApp(), function (error, stdout, stderr) {
+        exec(removeActualApp() + ' && ' + moveApp() + ' && ' + removeExistingApp() + ' && ' + moveSampleApp() + ' && ' + moveIcon(this.value) + ' && ' + openApp(), function (error, stdout, stderr) {
+            console.log(error, stdout, stderr);
             gui.App.quit();
         });
       }, false);
