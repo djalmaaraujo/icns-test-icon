@@ -2,7 +2,7 @@
 
 Useful tool for designers test how their ICNS icons will look like on the dock/cmd+tab.
 
-[Download for MAC OS](http://)
+[Download for MAC OS](https://github.com/djalmaaraujo/icns-test-icon/releases/download/v1.0-beta/ICNSTestIcon.zip)
 
 ## License
 [MIT License](http://djalmaaraujo.mit-license.org)
