@@ -1,0 +1,15 @@
+{
+  "name": "Test-ICNS",
+  "main": "index.html",
+  "window": {
+    "title": "Test my ICNS",
+    "toolbar": false,
+    "frame": true,
+    "width": 300,
+    "height": 100,
+    "min_width": 300,
+    "min_height": 100,
+    "max_width": 300,
+    "max_height": 100
+  }
+}
