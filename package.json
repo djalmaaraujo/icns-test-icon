@@ -1,8 +1,8 @@
 {
-  "name": "Test-ICNS",
-  "main": "index.html",
+  "name": "ICNSTestIcon",
+  "main": "app/index.html",
   "window": {
-    "title": "Test my ICNS",
+    "title": "ICNSTestIcon",
     "toolbar": true,
     "frame": true,
     "width": 300,
@@ -11,5 +11,12 @@
     "min_height": 100,
     "max_width": 300,
     "max_height": 100
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-shell": "^0.2.9",
+    "node-webkit-builder": "^0.1.2",
+    "gulp-util": "~3.0.0",
+    "rimraf": "~2.2.8"
   }
 }

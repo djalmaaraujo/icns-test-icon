@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test my ICNS</title>
+  <title>ICNSTestIcon</title>
   <meta charset="utf-8" />
 </head>
 <body>
@@ -38,7 +38,6 @@
 
       chooser.addEventListener("change", function(evt) {
         exec(removeActualApp() + ' && ' + moveApp() + ' && ' + moveSampleApp() + ' && ' + moveIcon(this.value) + ' && ' + openApp(), function (error, stdout, stderr) {
-            console.log(error, stdout, stderr);
             gui.App.quit();
         });
       }, false);
