@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test my ICNS</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <input type="file" style="display: none" accept=".icns" id="file-dialog" />
+
+  <script>
+    var exec      = require('child_process').exec;
+    var gui       = require('nw.gui');
+    var dirname   = require('./dirname');
+    var finalPath = '~/ICNSTestSampleApp' + Date.now() + '.app';
+
+    function removeActualApp() {
+      return 'rm -rf ~/ICNSTestSampleApp*';
+    }
+
+    function moveIcon(icon) {
+      return 'cp ' + icon + ' ' + finalPath + '/Contents/Resources/nw.icns';
+    }
+
+    function moveApp() {
+      return 'cp -R /Applications/ICNSTestIcon.app ' + finalPath + '/';
+    }
+
+    function moveSampleApp() {
+      return 'cp -R ' + dirname + '/app.sample.nw ' + finalPath + '/Contents/Resources/app.nw';
+    }
+
+    function openApp() {
+      return 'open ' + finalPath;
+    }
+
+    function chooseFile(name) {
+      var chooser = document.querySelector(name);
+
+      chooser.addEventListener("change", function(evt) {
+        exec(removeActualApp() + ' && ' + moveApp() + ' && ' + moveSampleApp() + ' && ' + moveIcon(this.value) + ' && ' + openApp(), function (error, stdout, stderr) {
+            gui.App.quit();
+        });
+      }, false);
+
+      chooser.click();
+    }
+
+    chooseFile('#file-dialog');
+  </script>
+</body>
+</html>
