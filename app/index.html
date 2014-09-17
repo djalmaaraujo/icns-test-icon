@@ -3,8 +3,29 @@
 <head>
   <title>ICNSTestIcon</title>
   <meta charset="utf-8" />
+  <style type="text/css">
+    body {
+      background: black;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    button {
+      width: 240px;
+      height: 60px;
+      text-align: center;
+      background: #4183c4;
+      color: white;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <button id="choose-file">Choose a File</button>
   <input type="file" style="display: none" accept=".icns" id="file-dialog" />
 
   <script type="text/javascript" src="js/app.js"></script>

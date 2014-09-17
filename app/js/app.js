@@ -53,6 +53,7 @@ function chooseFile(name) {
   var chooser = document.querySelector(name);
 
   chooser.addEventListener("change", function (evt) {
+    evt.preventDefault();
     App.go(this.value);
   }, false);
 
@@ -60,3 +61,9 @@ function chooseFile(name) {
 }
 
 chooseFile('#file-dialog');
+
+// Button
+document.getElementById('choose-file').addEventListener('click', function (e) {
+  e.preventDefault();
+  chooseFile('#file-dialog');
+});
